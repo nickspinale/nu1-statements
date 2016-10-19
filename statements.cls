@@ -1,0 +1,49 @@
+\ProvidesClass{statements}
+\LoadClass{article}
+
+\newenvironment{enum}{
+  \vspace{-\topsep}
+  \begin{enumerate}
+  \itemsep1pt \parskip0pt \parsep0pt
+}{
+  \end{enumerate}
+  \vspace{-\topsep}
+}
+
+\newcounter{uid}
+\newcommand{\entry}[4][]{
+  \stepcounter{uid}
+  \theoremstyle{#4}
+  \newtheorem*{\arabic{uid}}{#3}
+  \begin{\arabic{uid}}[#1]
+    #2
+  \end{\arabic{uid}}
+}
+
+\newcommand{\notation}[2][]{
+  \entry[#1]{#2}{Notation}{definition}
+}
+\newcommand{\dfn}[2][]{
+  \entry[#1]{#2}{Definition}{definition}
+}
+\newcommand{\prop}[2][]{
+  \entry[#1]{#2}{Proposition}{plain}
+}
+\newcommand{\thm}[2][]{
+  \entry[#1]{#2}{Theorem}{plain}
+}
+\newcommand{\lemma}[2][]{
+  \entry[#1]{#2}{Lemma}{plain}
+}
+\newcommand{\cor}[2][]{
+  \entry[#1]{#2}{Corollary}{plain}
+}
+\newcommand{\fact}[2][]{
+  \entry[#1]{#2}{Fact}{plain}
+}
+\newcommand{\rmk}[2][]{
+  \entry[#1]{#2}{Remark}{remark}
+}
+\newcommand{\obs}[2][]{
+  \entry[#1]{#2}{Observation}{remark}
+}

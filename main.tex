@@ -1,0 +1,125 @@
+\documentclass{statements}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\tand}{\text{ and }}
+
+\title{
+  NU1 Statements \\
+  \large A Collection of Unsubstantiated Claims
+}
+\author{
+  Nick Spinale \\
+  \it Budapest Semesters in Mathematics \\
+  \it Number Theory
+}
+
+\begin{document}
+
+\maketitle
+
+\section*{Divisibility}
+
+\notation{
+$a|b \iff \exists x : ax = b$
+}
+
+\prop{
+-
+\begin{enum}
+  \item $a|b \implies a|bc$
+  \item $a|b \tand b|c \implies a|c$
+  \item $a|b \tand a|c \implies a|bx+cy$
+  \item $a|b \tand b \neq 0 \implies |a| \le |b|$
+  \item $a|b \tand b|a \implies a = \pm b$
+\end{enum}
+}
+
+\prop{
+$a^n-b^n=(a-b)\sum^n_{i=0} a^{n-i}b^i$
+}
+
+\prop{
+If $n$ is odd, then
+$a^n+b^n=(a+b)\sum^n_{i=0} (-1)^ia^{n-i}b^i$
+}
+
+\dfn{
+$d$, denoted $(a,b)$, is the distingiushed common divisor of $a$ and $b$ iff
+\begin{enum}
+  \item $d|a \tand d|b$
+  \item $c|a \tand c|b \implies c|d$
+\end{enum}
+}
+
+\prop{
+$(a, b)$ exists, and is unique up to sign.
+}
+
+\dfn[Euclidean Algorithm]{
+Todo
+}
+
+\prop{
+-
+\begin{enum}
+  \item $(a,b)=(a,ak+b)$
+  \item $(a,b)=(ma,mb)$
+\end{enum}
+}
+
+\dfn{
+$a$ and $b$ are relatively prime iff $(a,b)=1$.
+}
+
+\lemma[Euclid]{
+$a|bc \tand (a,b)=1 \implies a|c$
+}
+
+\section*{Base 10 Divisibility}
+
+\prop[Divisibility by 9]{
+$\overline{a_k\ldots a_2a_1} \equiv a_k+\ldots+a_2+a_1 \mod 9$
+}
+
+\prop[Divisibility by 11]{
+$\overline{a_k\ldots a_2a_1} \equiv \sum^k_{i=1} (-1)^{n-1}a_i \mod 11$
+}
+
+\prop[Last $n$ digit rule]{
+If $a|10^k$, then $\overline{\ldots a_k \ldots a_2 a_1} \equiv \overline{a_k \ldots a_2 a_1} \mod a$
+}
+
+\section*{Primes}
+
+\dfn{
+$p$ is irreducable iff $a|p \implies a=1 \lor a=p$
+}
+
+\dfn{
+$p$ is prime iff $p|ab \implies p=a \lor p=b$
+}
+
+\thm{
+In $\Z$, irreducability and primality are equivalent.
+}
+
+\thm[Fundimental Theorem of Arithmetic]{
+Every positive integer $n$ has a unique canonical representation
+$$n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_k^{\alpha_k} = \prod^k_{i=1} p_i^{\alpha_i}$$
+Where $p_1 < p_2 < \ldots < p_k$ are primes.
+}
+
+\thm{
+There are infinitely many primes
+}
+
+\section*{Congruences}
+
+\end{document}
