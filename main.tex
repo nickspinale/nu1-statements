@@ -30,8 +30,7 @@
 $a|b \iff \exists x : ax = b$
 }
 
-\prop{
--
+\prop{~
 \begin{enum}
   \item $a|b \implies a|bc$
   \item $a|b \tand b|c \implies a|c$
@@ -50,6 +49,22 @@ If $n$ is odd, then
 $a^n+b^n=(a+b)\sum^n_{i=0} (-1)^ia^{n-i}b^i$
 }
 
+\prop{
+If $n$ is composite, then $2^n-1$ is also composite.
+}
+
+\prop{
+If $n\ge 2$ and $a^n-1$ is prime, then $a=2$ and $n$ is prime.
+}
+
+\dfn[Fermat numbers]{
+$F_n=2^{(2^n)}+1$
+}
+
+\prop{
+$(F_n,F_m)=1$
+}
+
 \dfn{
 $d$, denoted $(a,b)$, is the distingiushed common divisor of $a$ and $b$ iff
 \begin{enum}
@@ -66,12 +81,15 @@ $(a, b)$ exists, and is unique up to sign.
 Todo
 }
 
-\prop{
--
+\prop{~
 \begin{enum}
   \item $(a,b)=(a,ak+b)$
-  \item $(a,b)=(ma,mb)$
+  \item $(ma,mb)=m(a,b)$
 \end{enum}
+}
+
+\dfn[Euclidean Algorithm]{
+$(a,b)$ is the smallest $n$ such that $ax+by=n$.
 }
 
 \dfn{
@@ -85,15 +103,15 @@ $a|bc \tand (a,b)=1 \implies a|c$
 \section*{Base 10 Divisibility}
 
 \prop[Divisibility by 9]{
-$\overline{a_k\ldots a_2a_1} \equiv a_k+\ldots+a_2+a_1 \mod 9$
+$\overline{a_k\ldots a_1a_0} \equiv a_k+\ldots+a_1+a_0 \mod 9$
 }
 
 \prop[Divisibility by 11]{
-$\overline{a_k\ldots a_2a_1} \equiv \sum^k_{i=1} (-1)^{n-1}a_i \mod 11$
+$\overline{a_k\ldots a_1a_0} \equiv \sum^k_{i=0} (-1)^{n}a_i \mod 11$
 }
 
 \prop[Last $n$ digit rule]{
-If $a|10^k$, then $\overline{\ldots a_k \ldots a_2 a_1} \equiv \overline{a_k \ldots a_2 a_1} \mod a$
+If $a|10^k$, then $\overline{\ldots a_k \ldots a_1a_0} \equiv \overline{a_k \ldots a_2 a_1} \mod a$
 }
 
 \section*{Primes}
@@ -106,7 +124,7 @@ $p$ is irreducable iff $a|p \implies a=1 \lor a=p$
 $p$ is prime iff $p|ab \implies p=a \lor p=b$
 }
 
-\thm{
+\prop{
 In $\Z$, irreducability and primality are equivalent.
 }
 
@@ -116,10 +134,85 @@ $$n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_k^{\alpha_k} = \prod^k_{i=1} p_i^{\
 Where $p_1 < p_2 < \ldots < p_k$ are primes.
 }
 
+\thm[Bertrand's Postulate]{
+For all $n$, there exists a prime $p$ such that $n < p < n2$.
+}
+
+\thm[Bertrand's Postulate]{
+Arbitrarily large prime gaps exist.
+}
+
+\thm[Dirichet]{
+If $(a,b)=1$, then there are infinitely many primes of the form $ak+b$.
+}
+
 \thm{
-There are infinitely many primes
+$(\exists x: x^2 \equiv -1 \mod p) \iff p=4k+1$
+}
+
+\thm{
+If $p=4k-1$ and $p|a^2+b^2$, then $p|a$, $p|b$, and $p^2|a^2+b^2$.
 }
 
 \section*{Congruences}
+
+\prop{
+Assume $a\equiv b\mod m$ and $c\equiv d\mod m$.
+\begin{enum}
+  \item $a+c \equiv b+d$
+  \item $ac \equiv bc$
+  \item $ac \equiv bd$
+  \item $a^n \equiv b^n$
+\end{enum}
+}
+
+\dfn{~
+\begin{enum}
+  \item A complete residue system modulo $n$ is a set containing exactly one element from each residue class modulo $n$.
+  \item A reduced residue system modulo $n$ is a set containing exactly one element from each residue class modulo $n$ coprime to $m$.
+\end{enum}
+}
+
+\dfn[Totient function]{
+$\phi(n)$ is the number of integers $a$ such that $1 \le a < n$ such that $(a,n)=1$.
+}
+
+\prop{
+Assume $n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_k^{\alpha_k}$.
+Then $\phi(n) = \prod (p_i^{\alpha_i}-p_i^{\alpha_i-1}) = n\prod(1-\frac{1}{p_i})$
+}
+
+\thm[Euler's totient theorem]{
+If $(a,n)=1$, then $a^{\phi(n)}\equiv 1 \mod n$.
+}
+
+\thm[Wilson]{
+$(p-1)! \equiv -1 \mod p$
+}
+
+\thm{
+The congruence $ax\equiv b \mod m$ has a solution iff $(m,a)|b$.
+Furthermore, all such solutions are equivalent modulo $\frac{m}{(m,a)}$.
+}
+
+\cor{
+$ab\equiv ac\mod m \iff b=c\mod\frac{m}{(m,a)}$
+}
+
+\cor{
+The equation $ax+by=c$ has a solution iff $(a,b)|c$.
+Furthermore, if $(x_0,y_0)$ is a solution, then so is $(x_0-t\frac{b}{(a,b)}, y_0+t\frac{a}{(a,b)})$.
+}
+
+\section*{Interesting Numbers}
+
+\thm{
+If $m$ and $n$ are each the sum of two squares, then so is $mn$.
+}
+
+\thm{
+$n$ is the sum of two squares iff $n = 2^\gamma \prod p_i^{\alpha_i} \prod q_i^{2\beta_i}$,
+where $p_i=4k+1$ and $q_i=4k-1$.
+}
 
 \end{document}

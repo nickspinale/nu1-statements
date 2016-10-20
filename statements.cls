@@ -27,19 +27,19 @@
   \entry[#1]{#2}{Definition}{definition}
 }
 \newcommand{\prop}[2][]{
-  \entry[#1]{#2}{Proposition}{plain}
+  \entry[#1]{#2}{Proposition}{definition}
 }
 \newcommand{\thm}[2][]{
-  \entry[#1]{#2}{Theorem}{plain}
+  \entry[#1]{#2}{Theorem}{definition}
 }
 \newcommand{\lemma}[2][]{
-  \entry[#1]{#2}{Lemma}{plain}
+  \entry[#1]{#2}{Lemma}{definition}
 }
 \newcommand{\cor}[2][]{
-  \entry[#1]{#2}{Corollary}{plain}
+  \entry[#1]{#2}{Corollary}{definition}
 }
 \newcommand{\fact}[2][]{
-  \entry[#1]{#2}{Fact}{plain}
+  \entry[#1]{#2}{Fact}{definition}
 }
 \newcommand{\rmk}[2][]{
   \entry[#1]{#2}{Remark}{remark}
