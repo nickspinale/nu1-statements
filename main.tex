@@ -41,12 +41,12 @@ $a|b \iff \exists x : ax = b$
 }
 
 \prop{
-$a^n-b^n=(a-b)\sum^n_{i=0} a^{n-i}b^i$
+$a^n-b^n=(a-b)\sum^{n-1}_{i=0} a^{n-i}b^i$
 }
 
 \prop{
 If $n$ is odd, then
-$a^n+b^n=(a+b)\sum^n_{i=0} (-1)^ia^{n-i}b^i$
+$a^n+b^n=(a+b)\sum^{n-1}_{i=0} (-1)^ia^{n-i}b^i$
 }
 
 \prop{
@@ -110,8 +110,8 @@ $\overline{a_k\ldots a_1a_0} \equiv a_k+\ldots+a_1+a_0 \mod 9$
 $\overline{a_k\ldots a_1a_0} \equiv \sum^k_{i=0} (-1)^{n}a_i \mod 11$
 }
 
-\prop[Last $n$ digit rule]{
-If $a|10^k$, then $\overline{\ldots a_k \ldots a_1a_0} \equiv \overline{a_k \ldots a_2 a_1} \mod a$
+\prop[Last $k$ digit rule]{
+If $n|10^k$, then $\overline{\ldots a_ka_{k-1} \ldots a_1a_0} \equiv \overline{a_{k-1} \ldots a_2 a_1} \mod n$
 }
 
 \section*{Primes}
@@ -121,7 +121,7 @@ $p$ is irreducable iff $a|p \implies a=1 \lor a=p$
 }
 
 \dfn{
-$p$ is prime iff $p|ab \implies p=a \lor p=b$
+$p$ is prime iff $p|ab \implies p|a \lor p|b$
 }
 
 \prop{
@@ -138,7 +138,7 @@ Where $p_1 < p_2 < \ldots < p_k$ are primes.
 For all $n$, there exists a prime $p$ such that $n < p < n2$.
 }
 
-\thm[Bertrand's Postulate]{
+\thm{
 Arbitrarily large prime gaps exist.
 }
 
@@ -196,7 +196,7 @@ Furthermore, all such solutions are equivalent modulo $\frac{m}{(m,a)}$.
 }
 
 \cor{
-$ab\equiv ac\mod m \iff b=c\mod\frac{m}{(m,a)}$
+$ab\equiv ac\mod m \iff b\equiv c\mod\frac{m}{(m,a)}$
 }
 
 \cor{
