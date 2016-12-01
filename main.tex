@@ -6,6 +6,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+\usepackage{mathtools,breqn}
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\tand}{\text{ and }}
@@ -256,6 +258,113 @@ $\sum_{d|n} \phi(n) = n$
 }
 
 \section*{Quadratic Residues}
+
+\newcommand{\qres}[2]{\left(\frac{#1}{#2}\right)}
+
+\dfn{
+$a \mapsto \qres{a}{p}$
+is the unique homomorphism
+from the multiplicative group modulo $p$
+to the multiplicative group modulo $3$.
+}
+
+\prop{
+$a^{\frac{p-1}{2}} = \qres{a}{p}$
+}
+
+\prop{
+\begin{align*}
+  \qres{a}{p} =&
+    \begin{cases}
+      1 & \text{if $x$ is a quadratic residue} \\
+      -1 & \text{otherwise}
+    \end{cases}
+    \\
+  \qres{a}{p} =&
+    \begin{cases}
+      1 & \text{if $x$ is a quadratic residue} \\
+      -1 & \text{otherwise}
+    \end{cases}
+    \\
+  \qres{-1}{p} =&
+    \begin{cases}
+      1 & \text{if $p \equiv 1 (4)$} \\
+      -1 & \text{if $p \equiv -1 (4)$}
+    \end{cases}
+    \\
+  \qres{2}{p} =&
+    \begin{cases}
+      1 & \text{if $p \equiv \pm 1 (8)$} \\
+      -1 & \text{if $p \equiv \pm 3 (8)$}
+    \end{cases}
+    \\
+  \qres{q}{p} =&
+    \begin{cases}
+      \qres{p}{q} & \text{if $p \equiv 1 (4)$ or $q \equiv 1 (4)$} \\
+      -\qres{p}{q} & \text{otherwise}
+    \end{cases}
+    \\
+\end{align*}
+}
+
+\prop{
+$\qres{ab}{p} = \qres{a}{p} \qres{b}{p}$
+}
+
+\section*{Arithmetic Functions}
+
+\dfn[Arithmetic Function]{
+A function $f : \mathbb{N} \rightarrow \mathbb{C}$ is arithmetic.
+}
+
+\dfn{$
+d(n) = \sum_{d|n} 1 = \prod(\alpha_i + 1)
+$}
+
+\dfn{$
+\sigma(n) = \sum_{d|n} d = \prod(1 + p_i + \dots + p_i^{\alpha_i})
+$}
+
+\dfn{$
+\phi(n) = \sum_{(a,n)=1} 1 = \prod(p_i^{\alpha_i}-p_i^{\alpha_i-1}) = n \prod(1-\frac{1}{p_i})
+$}
+
+\dfn{
+$f$ is a multiplicative function if $(a,b) = 1$ implies $f(a,b) = f(a) \cdot f(b)$
+}
+
+\dfn{
+$f$ is a total multiplicative function if $f(a,b) = f(a) \cdot f(b)$
+}
+
+\dfn{
+$(f \circ g)(n) = \sum_{d|n} f\left(\frac{n}{d}\right) \cdot g(d)$
+}
+
+\prop{
+$\circ$ preserves multiplicativity.
+}
+
+\obs{
+$1 \circ 1 = d$ and $1 \circ \text{id} = \sigma$
+}
+
+\prop{
+$d$ and $\sigma$ are multiplicative functions.
+}
+
+\thm[Peak and Valley Theorems for $d$]{
+For all $k$, there is some $n$ such that $d(n-1) > n + k < d(n+1)$, and
+some $m$ such that $d(m-1) > m - k < d(m+1)$.
+}
+
+\dfn[Perfect Number]{
+$n$ is perfect if $\sigma(n) = 2n$.
+}
+
+\thm{
+$n$ is perfect iff $n = 2^{\alpha}(2^{\alpha+1}-1)$ where $2^{\alpha+1}-1$ is prime.
+}
 
 \end{document}
 
