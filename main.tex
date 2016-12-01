@@ -204,6 +204,12 @@ The equation $ax+by=c$ has a solution iff $(a,b)|c$.
 Furthermore, if $(x_0,y_0)$ is a solution, then so is $(x_0-t\frac{b}{(a,b)}, y_0+t\frac{a}{(a,b)})$.
 }
 
+\newcommand{\zmod}[1]{\ensuremath{\mathbb{Z}/#1\mathbb{Z}}}
+\thm[Chinese Remainder Theorem]{
+If $n_1, \dots n_k$ are pairwise coprime and $\Pi n_i = N$,
+then $x \mod N \mapsto (x \mod n_1, \dots x \mod n_k)$ is a ring isomorphism.
+}
+
 \section*{Interesting Numbers}
 
 \thm{
@@ -215,4 +221,43 @@ $n$ is the sum of two squares iff $n = 2^\gamma \prod p_i^{\alpha_i} \prod q_i^{
 where $p_i=4k+1$ and $q_i=4k-1$.
 }
 
+\section*{Order}
+
+\dfn[Order]{
+Given modulus $n$ and $g$ such that $(n,a) = 1$,
+the order of $g$ is the smallest positive $k$ such that $g^k \equiv 1 (n)$.
+We say $o_n(g) = k$.
+}
+
+\prop{
+$o_n(g) | \phi(n)$
+}
+
+\prop{
+$o_n(g^i) = \frac{o_n(g)}{(i,o_n(g))}$
+}
+
+\dfn[Primitive Root]{
+$g$ is a primitive root modulo $n$ if $o_n(g) = \phi(n)$.
+}
+
+\thm{
+There exists a primitive root modulo $n$ iff one of the following is true:
+\begin{align*}
+  n &= p^\alpha \text{ for some odd prime } p \\
+  n &= 2p^\alpha \text{ for some odd prime } p \\
+  n &= 2 \\
+  n &= 4 \\
+\end{align*}
+}
+
+\thm{
+$\sum_{d|n} \phi(n) = n$
+}
+
+\section*{Quadratic Residues}
+
 \end{document}
+
+% TODO
+% - sum of squares
